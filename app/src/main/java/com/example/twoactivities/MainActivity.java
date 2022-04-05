@@ -12,17 +12,11 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
-
     public static final String EXTRA_MESSAGE
             = "com.example.android.twoactivities.extra.MESSAGE";
-
     public static final int TEXT_REQUEST = 1;
-
-
     private EditText mMessageEditText;
-
     private TextView mReplyHeadTextView;
-
     private TextView mReplyTextView;
 
     @Override
@@ -44,17 +38,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        // Test for the right intent reply.
         if (requestCode == TEXT_REQUEST) {
-            // Test to make sure the intent reply result was good.
             if (resultCode == RESULT_OK) {
                 String reply = data.getStringExtra(SecondActivity.EXTRA_REPLY);
-
-                // Make the reply head visible.
                 mReplyHeadTextView.setVisibility(View.VISIBLE);
-
-                // Set the reply and make it visible.
                 mReplyTextView.setText(reply);
                 mReplyTextView.setVisibility(View.VISIBLE);
             }
